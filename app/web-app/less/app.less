@@ -1,0 +1,85 @@
+@import "animation";
+@import "breaks";
+@import "typography";
+
+body {
+  background-color: rgb(233, 83, 141);
+  color: #ffffcc;
+  width:100%;
+  margin:0px;
+
+  .slide {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height:100vh;
+    content: '&nbsp';
+
+    .frame {
+      padding: 20% 0%;
+      max-width: 60%;
+      margin: auto;
+      @media (max-width: @mobile) {
+        max-width: 90%;
+        // padding: 15% 5%;
+      }
+    }
+
+    .text-frame {
+      padding: 10% 0%;
+      max-width: 80%;
+      margin: auto;
+      @media (max-width: @mobile) {
+        max-width: 90%;
+        // padding: 15% 5%;
+      }
+    }
+
+    &.slide__odd {
+      background-color: rgb(233, 83, 141);
+      color: #ffffcc;
+    }
+    &.slide__even {
+      background-color: #ffffcc;
+      color: rgb(233, 83, 141);
+    }
+
+    &.slide__intro {
+      h1 {
+        display: inline;
+        // float: left !important;
+        @media (max-width: @mobile) {
+          display: block;
+          margin: auto;
+        }
+      }
+
+      h2 {
+        margin: 0px 0px 0px 15px;
+      }
+    }
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .right {
+    float:right;
+
+    &.with-padding {
+      padding: 15px;
+    }
+  }
+}
+
+
+/*
+.generate-slides(10);
+
+.generate-slides(@n, @i: 1) when (@i =< @n) {
+  &.slide-@{i} {
+    top: (@i * 100px / @n);
+  }
+  .generate-slides(@n, (@i + 1));
+}*/

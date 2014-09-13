@@ -1,0 +1,10 @@
+{
+  "name": "cherry",
+  "dependencies": {
+    "bower-skrollr": "~0.6.21"
+  },
+  "overrides": {
+  },
+  "devDependencies": {
+  }
+}

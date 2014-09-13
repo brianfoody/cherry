@@ -1,0 +1,35 @@
+@import "breaks";
+
+h1, h2, p {
+  font-family: 'Headland One', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 150px;
+  @media (max-width: @mobile) {
+    font-size: 100px;
+  }
+}
+h2 {
+  font-size: 40px;
+  @media (max-width: @mobile) {
+    font-size: 20px;
+  }
+}
+
+.spacer {
+  font-size: 150px;
+  display:inline;
+  @media (max-width: @mobile) {
+    font-size: 100px;
+    display: none;
+  }
+}
+
+p {
+  font-size: 60px;
+  @media (max-width: @mobile) {
+    font-size: 40px;
+  }
+}

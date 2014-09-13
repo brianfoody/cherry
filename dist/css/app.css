@@ -1,0 +1,133 @@
+.cherry-cupcake {
+  display: inline;
+}
+.cherry-cupcake .cupcake {
+  height: 20vh;
+  width: auto;
+  display: inline;
+}
+@media (max-width: 480px) {
+  .cherry-cupcake .cupcake {
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+  }
+}
+.cherry-cupcake .cherry {
+  height: 20vh;
+  width: auto;
+  position: absolute;
+  display: none;
+  overflow-x: hidden;
+}
+h1,
+h2,
+p {
+  font-family: 'Headland One', serif;
+  font-weight: 400;
+}
+h1 {
+  font-size: 150px;
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 100px;
+  }
+}
+h2 {
+  font-size: 40px;
+}
+@media (max-width: 480px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+.spacer {
+  font-size: 150px;
+  display: inline;
+}
+@media (max-width: 480px) {
+  .spacer {
+    font-size: 100px;
+    display: none;
+  }
+}
+p {
+  font-size: 60px;
+}
+@media (max-width: 480px) {
+  p {
+    font-size: 40px;
+  }
+}
+body {
+  background-color: #e9538d;
+  color: #ffffcc;
+  width: 100%;
+  margin: 0px;
+}
+body .slide {
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  content: '&nbsp';
+}
+body .slide .frame {
+  padding: 20% 0%;
+  max-width: 60%;
+  margin: auto;
+}
+@media (max-width: 480px) {
+  body .slide .frame {
+    max-width: 90%;
+  }
+}
+body .slide .text-frame {
+  padding: 10% 0%;
+  max-width: 80%;
+  margin: auto;
+}
+@media (max-width: 480px) {
+  body .slide .text-frame {
+    max-width: 90%;
+  }
+}
+body .slide.slide__odd {
+  background-color: #e9538d;
+  color: #ffffcc;
+}
+body .slide.slide__even {
+  background-color: #ffffcc;
+  color: #e9538d;
+}
+body .slide.slide__intro h1 {
+  display: inline;
+}
+@media (max-width: 480px) {
+  body .slide.slide__intro h1 {
+    display: block;
+    margin: auto;
+  }
+}
+body .slide.slide__intro h2 {
+  margin: 0px 0px 0px 15px;
+}
+body .inline {
+  display: inline;
+}
+body .right {
+  float: right;
+}
+body .right.with-padding {
+  padding: 15px;
+}
+/*
+.generate-slides(10);
+
+.generate-slides(@n, @i: 1) when (@i =< @n) {
+  &.slide-@{i} {
+    top: (@i * 100px / @n);
+  }
+  .generate-slides(@n, (@i + 1));
+}*/
