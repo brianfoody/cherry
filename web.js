@@ -1,7 +1,9 @@
-var gzippo = require('gzippo');
-var express = require('express');
-var app = express();
+var connect = require('connect')
+var serveStatic = require('serve-static')
 
-app.use(express.logger('dev'));
-app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-app.listen(process.env.PORT || 5000);
+var app = connect()
+
+var port = process.env.PORT || 8080;
+
+app.use(serveStatic('dist/', {'index': ['index.html', 'default.htm']}))
+app.listen(port)
