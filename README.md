@@ -1,4 +1,4 @@
-Cherry
-=========
+cherry
+======
 
-Website for the lovely Cherry company, cherryonit.com.
+Cherry groups website
