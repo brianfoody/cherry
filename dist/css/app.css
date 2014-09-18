@@ -6,19 +6,15 @@
   width: auto;
   display: inline;
 }
-@media (max-width: 480px) {
-  .cherry-cupcake .cupcake {
-    display: block;
-    margin: auto;
-    margin-top: 100px;
-  }
-}
 .cherry-cupcake .cherry {
   height: 20vh;
   width: auto;
-  position: absolute;
-  display: none;
+  position: relative;
+  visibility: hidden;
   overflow-x: hidden;
+  bottom: 1000px;
+  bottom: 100vh;
+  right: 40px;
 }
 h1,
 h2,
@@ -60,74 +56,162 @@ p {
     font-size: 40px;
   }
 }
-body {
-  background-color: #e9538d;
-  color: #ffffcc;
-  width: 100%;
-  margin: 0px;
+body,
+html {
+  overflow: hidden;
 }
-body .slide {
-  text-align: center;
-  display: block;
-  width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Parallax base styles
+  --------------------------------------------- */
+.parallax {
+  height: 500px;
+  /* fallback for older browsers */
   height: 100vh;
-  content: '&nbsp';
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
 }
-body .slide .frame {
-  padding: 20% 0%;
-  max-width: 60%;
-  margin: auto;
+.parallax__group-intro {
+  position: relative;
+  height: 500px;
+  /* fallback for older browsers */
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
-@media (max-width: 480px) {
-  body .slide .frame {
-    max-width: 90%;
-  }
+.parallax__group {
+  position: relative;
+  height: 500px;
+  /* fallback for older browsers */
+  height: 80vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
-body .slide .text-frame {
-  padding: 10% 0%;
-  max-width: 80%;
-  margin: auto;
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-@media (max-width: 480px) {
-  body .slide .text-frame {
-    max-width: 90%;
-  }
+.parallax__layer--fore {
+  -webkit-transform: translateZ(90px) scale(0.7);
+  transform: translateZ(90px) scale(0.7);
+  z-index: 1;
 }
-body .slide.slide__odd {
-  background-color: #e9538d;
+.parallax__layer--base {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 4;
+}
+.parallax__layer--back {
+  -webkit-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+.parallax__layer--deep {
+  -webkit-transform: translateZ(-600px) scale(3);
+  transform: translateZ(-600px) scale(3);
+  z-index: 2;
+}
+/* centre the content in the parallax layers */
+.frame {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+h1,
+h2,
+p {
+  font-family: 'Headland One', serif;
+  font-weight: 400;
+}
+h1 {
+  font-size: 800%;
+  font-size: 15vh;
+}
+h2 {
+  font-size: 300%;
+  font-size: 5vh;
+}
+p {
+  font-size: 200%;
+  font-size: 5vh;
+}
+/* style the groups
+--------------------------------------------- */
+#group1 {
   color: #ffffcc;
+  z-index: 5;
+  /* slide over group 2 */
 }
-body .slide.slide__even {
-  background-color: #ffffcc;
-  color: #e9538d;
-}
-body .slide.slide__intro h1 {
+#group1 h1 {
   display: inline;
 }
 @media (max-width: 480px) {
-  body .slide.slide__intro h1 {
+  #group1 h1 {
     display: block;
     margin: auto;
   }
 }
-body .slide.slide__intro h2 {
+#group1 h2 {
   margin: 0px 0px 0px 15px;
 }
-body .inline {
-  display: inline;
+#group1 .parallax__layer--base {
+  background: #e9538d;
 }
-body .right {
-  float: right;
+#group2 {
+  z-index: 3;
+  /* slide under groups 1 and 3 */
 }
-body .right.with-padding {
-  padding: 15px;
+#group2 .parallax__layer--back {
+  color: #ffffcc;
+  background: #e9538d;
 }
-/*
-.generate-slides(10);
-
-.generate-slides(@n, @i: 1) when (@i =< @n) {
-  &.slide-@{i} {
-    top: (@i * 100px / @n);
-  }
-  .generate-slides(@n, (@i + 1));
-}*/
+#group2 .parallax__layer--base {
+  background: #ffffcc;
+  color: #e9538d;
+}
+#group3 {
+  z-index: 4;
+  /* slide over group 2 and 4 */
+}
+#group3 .parallax__layer--base {
+  color: #ffffcc;
+  background: #e9538d;
+}
+#group4 {
+  z-index: 2;
+  /* slide under group 3 and 5 */
+}
+#group4 .parallax__layer--deep {
+  background: #b8df65;
+}
+#group5 {
+  z-index: 3;
+  /* slide over group 4 and 6 */
+}
+#group5 .parallax__layer--base {
+  background: #d6e564;
+}
+#group6 {
+  z-index: 2;
+  /* slide under group 5 and 7 */
+}
+#group6 .parallax__layer--back {
+  background: #f5eb64;
+}
+#group7 {
+  z-index: 3;
+  /* slide over group 7 */
+}
+#group7 .parallax__layer--base {
+  background: #fff164;
+}

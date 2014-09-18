@@ -2,84 +2,176 @@
 @import "breaks";
 @import "typography";
 
-body {
-  background-color: rgb(233, 83, 141);
-  color: #ffffcc;
-  width:100%;
-  margin:0px;
+body, html {
+  overflow: hidden;
+}
 
-  .slide {
-    text-align: center;
-    display: block;
-    width: 100%;
-    height:100vh;
-    content: '&nbsp';
+* {
+  margin:0;
+  padding:0;
+}
 
-    .frame {
-      padding: 20% 0%;
-      max-width: 60%;
-      margin: auto;
-      @media (max-width: @mobile) {
-        max-width: 90%;
-        // padding: 15% 5%;
-      }
-    }
+/* Parallax base styles
+  --------------------------------------------- */
 
-    .text-frame {
-      padding: 10% 0%;
-      max-width: 80%;
-      margin: auto;
-      @media (max-width: @mobile) {
-        max-width: 90%;
-        // padding: 15% 5%;
-      }
-    }
+.parallax {
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+}
 
-    &.slide__odd {
-      background-color: rgb(233, 83, 141);
-      color: #ffffcc;
-    }
-    &.slide__even {
-      background-color: #ffffcc;
-      color: rgb(233, 83, 141);
-    }
+.parallax__group-intro {
+  position: relative;
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
 
-    &.slide__intro {
-      h1 {
-        display: inline;
-        // float: left !important;
-        @media (max-width: @mobile) {
-          display: block;
-          margin: auto;
-        }
-      }
+.parallax__group {
+  position: relative;
+  height: 500px; /* fallback for older browsers */
+  height: 80vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
 
-      h2 {
-        margin: 0px 0px 0px 15px;
-      }
-    }
-  }
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
-  .inline {
-    display: inline;
-  }
+.parallax__layer--fore {
+  -webkit-transform: translateZ(90px) scale(.7);
+  transform: translateZ(90px) scale(.7);
+  z-index: 1;
+}
 
-  .right {
-    float:right;
+.parallax__layer--base {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 4;
+}
 
-    &.with-padding {
-      padding: 15px;
-    }
-  }
+.parallax__layer--back {
+  -webkit-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+
+.parallax__layer--deep {
+  -webkit-transform: translateZ(-600px) scale(3);
+  transform: translateZ(-600px) scale(3);
+  z-index: 2;
 }
 
 
-/*
-.generate-slides(10);
+/* centre the content in the parallax layers */
+.frame {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
-.generate-slides(@n, @i: 1) when (@i =< @n) {
-  &.slide-@{i} {
-    top: (@i * 100px / @n);
+h1, h2, p {
+  font-family: 'Headland One', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 800%;
+  font-size: 15vh;
+}
+h2 {
+  font-size: 300%;
+  font-size: 5vh;
+}
+
+p {
+  font-size: 200%;
+  font-size: 5vh;
+}
+
+
+
+/* style the groups
+--------------------------------------------- */
+
+#group1 {
+  color: #ffffcc;
+
+  z-index: 5; /* slide over group 2 */
+  h1 {
+    display: inline;
+    // float: left !important;
+    @media (max-width: @mobile) {
+      display: block;
+      margin: auto;
+    }
   }
-  .generate-slides(@n, (@i + 1));
-}*/
+
+  h2 {
+    margin: 0px 0px 0px 15px;
+  }
+}
+#group1 .parallax__layer--base {
+  background: rgb(233, 83, 141);
+}
+
+#group2 {
+  z-index: 3; /* slide under groups 1 and 3 */
+}
+#group2 .parallax__layer--back {
+  color: #ffffcc;
+  background: rgb(233, 83, 141);
+}
+
+#group2 .parallax__layer--base {
+  background: #ffffcc;
+  color: rgb(233, 83, 141);
+}
+
+#group3 {
+  z-index: 4; /* slide over group 2 and 4 */
+}
+#group3 .parallax__layer--base {
+  color: #ffffcc;
+  background: rgb(233, 83, 141);
+}
+
+#group4 {
+  z-index: 2; /* slide under group 3 and 5 */
+}
+#group4 .parallax__layer--deep {
+  background: rgb(184,223,101);
+}
+
+#group5 {
+  z-index: 3; /* slide over group 4 and 6 */
+}
+#group5 .parallax__layer--base {
+  background: rgb(214,229,100);
+}
+
+#group6 {
+  z-index: 2; /* slide under group 5 and 7 */
+}
+#group6 .parallax__layer--back {
+  background: rgb(245,235,100);
+}
+
+#group7 {
+  z-index: 3; /* slide over group 7 */
+}
+#group7 .parallax__layer--base {
+  background: rgb(255,241,100);
+}

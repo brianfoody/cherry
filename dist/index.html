@@ -19,61 +19,93 @@
     <!-- endinject -->
 </head>
 
-<body scroll-tracker ng-cloak="">
+<body ng-cloak="">
 
-    <div class="slide slide__odd slide__intro">
-        <div class="frame">
-            <div>
-                <h1>cherry</h1>
-                <span class="spacer">&nbsp;&nbsp;</span>
-                <div class="cherry-cupcake">
-                    <img class="cupcake" src="/images/cupcake2.png">
-                    <img class="cherry" src="images/cherry2.png" alt="Cherry"/>
+    <div class="parallax">
+        <div id="group1" class="parallax__group-intro">
+            <div class="parallax__layer parallax__layer--base">
+                <div class="frame">
+                    <div style="width: 100%; clear: both">
+                        <div style="width: 75%;float:left">
+                            <h1>cherry&nbsp;</h1>
+                            <h2 style="margin-left: 25%;">Words maketh the brand</h2>
+                        </div>
+                        <div style="width: 25%;float:right">
+                            <div class="cherry-cupcake">
+                                <img class="cupcake" src="/images/cupcake2.png">
+                                <img class="cherry" src="images/cherry2.png" alt="Cherry"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h2>Words maketh the brand</h2>
         </div>
-    </div>
-
-    <div class="slide slide__even">
-        <p class="text-frame">
-            Words: we're not happy unless we sprinkle, dot or apply them liberally wherever we can.
-        </p>
-    </div>
-
-    <div class="slide slide__odd">
-        <p class="text-frame">
-            People eat our words on sandwiches, drink them in on beverages and have been known to let them go to their heads on shampoos.
-        </p>
-    </div>
-
-    <div class="slide slide__even">
-        <p class="text-frame">
-            Our words make a noise in-store, catch eyes on DM, are irritatingly memorable in strap-lines and commonly taken as gospel in brand bibles.
-        </p>
-    </div>
-
-    <div class="slide slide__odd">
-        <div class="text-frame">
-            <h1>We love them.</h1>
+        <div id="group2" class="parallax__group">
+            <div class="parallax__layer parallax__layer--base">
+                <div class="frame">
+                    Words: we're not happy unless we sprinkle, dot or apply them liberally wherever we can.
+                </div>
+            </div>
+            <div class="parallax__layer parallax__layer--back">
+                <div class="frame">
+                    GROUP 2 BACK
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="slide slide__even">
-        <div class="text-frame">
-            <p>studio@cherryonit.com</p>
-            <h2>(+44) 020 7923 1333</h2>
-
-            <p>Ruth Gavin</p>
-            <h2>(+44) 07939575783</h2>
-
-            <p>Vivienne Hamilton</p>
-            <h2>(+44) 07768706733</h2>
+        <div id="group3" class="parallax__group">
+            <div class="parallax__layer parallax__layer--fore">
+                <div class="frame">
+                    GROUP 3 FORE
+                </div>
+            </div>
+            <div class="parallax__layer parallax__layer--base">
+                <div class="frame">
+                    GROUP 3 BASE
+                </div>
+            </div>
         </div>
+
+        <!--<div id="group3" class="parallax__group">
+            <div class="parallax__layer parallax__layer--base">
+                <div class="frame">
+                    Words: we're not happy unless we sprinkle, dot or apply them liberally wherever we can.
+                </div>
+            </div>
+            <div class="parallax__layer parallax__layer--back">
+                <div class="frame">
+                    Words: we're not happy unless we sprinkle, dot or apply them liberally wherever we can.
+                </div>
+            </div>
+        </div>-->
+
+        <!--<div class="slide slide__even">
+            <p class="text-frame">
+                Our words make a noise in-store, catch eyes on DM, are irritatingly memorable in strap-lines and commonly taken as gospel in brand bibles.
+            </p>
+        </div>
+
+        <div class="slide slide__odd">
+            <div class="text-frame">
+                <h1>We love them.</h1>
+            </div>
+        </div>
+
+        <div class="slide slide__even">
+            <div class="text-frame">
+                <p>studio@cherryonit.com</p>
+                <h2>(+44) 020 7923 1333</h2>
+
+                <p>Ruth Gavin</p>
+                <h2>(+44) 07939575783</h2>
+
+                <p>Vivienne Hamilton</p>
+                <h2>(+44) 07768706733</h2>
+            </div>
+        </div>
+
+
+        <p class="right with-padding">&#169;Cherry </p>-->
     </div>
-
-
-    <p class="right with-padding">&#169;Cherry </p>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
@@ -87,9 +119,6 @@
     <script src="src/conf/conf.js"></script>
     <script src="src/controllers/main.js"></script>
     <script src="src/directives/cherry-cupcake.js"></script>
-    <script src="src/directives/pulse.js"></script>
-    <script src="src/directives/scroll-tracker.js"></script>
-    <script src="src/directives/slide.js"></script>
     <script src="src/services/location-service.js"></script>
     <!-- endinject -->
 

@@ -4,10 +4,10 @@ angular.module('cherry').directive('cherryCupcake', function($timeout, locationS
         scope: {},
         link: function($scope, $element, $attrs, cakeCtrl) {
             $timeout(function() {
-                $(cakeCtrl.cherry).css('left', cakeCtrl.cupcakeLocation().x - 50);
-                $(cakeCtrl.cherry).css('bottom', WindowHeight + 50);
-                $(cakeCtrl.cherry).css('display', 'block');
+                $(cakeCtrl.cherry).css('visibility', 'visible');
+
                 var cherryLoc = locationService.elementLocation(cakeCtrl.cherry);
+
                 var cherryTop = cakeCtrl.topPositionRelativeTo(cherryLoc);
 
                 cakeCtrl.iCherry.accelerate({
@@ -17,12 +17,14 @@ angular.module('cherry').directive('cherryCupcake', function($timeout, locationS
                  minBounceDistance: 5
                  }).velocity(0, 0).from(0, 0).to(cherryTop.x, cherryTop.y + 50).start().then(
                  cakeCtrl.iCake.spring({ tension: 1000, damping: 20}).from(0,0).to({x:100, y:0}).start
-                 )
+                 );
             }, 750);
         },
         controller: function($scope, $element) {
+            this.cherryBottom = 50;
             this.cake = $element.find('.cupcake')[0];
             this.cherry = $element.find('.cherry')[0];
+            this.cherryOffset = this.cake.height + this.cherry.height - this.cherryBottom;
 
             this.iCake = Impulse(this.cake).style({
                 'scale': function(x, y) {
